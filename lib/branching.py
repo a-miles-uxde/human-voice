@@ -47,10 +47,9 @@ def evaluate_primary_route(screening_responses: list[dict[str, Any]]) -> dict[st
 
     Args:
         screening_responses: List of dicts, each with at least
-            ``{"question_id": "M01-Q05", "response": "business"}`` shape.
-            The ``response`` value for M01-Q05 supplies the writer_context.
-            Responses to M01-Q10 / M01-Q04 may supply experience_level
-            (numeric 1-7).
+            ``{"question_id": "M01-Q01", "response": "technical"}`` shape.
+            The ``response`` value for M01-Q01 (writer's primary role) supplies
+            the writer_context.
 
     Returns:
         Dict with keys: writer_type, branch_path, activated_modules, description.
@@ -66,21 +65,10 @@ def evaluate_primary_route(screening_responses: list[dict[str, Any]]) -> dict[st
         if qid:
             by_id[qid] = resp
 
-    # Extract writer_context from M01-Q05.
+    # Extract writer_context from M01-Q01.
     writer_context_raw = ""
-    if "M01-Q05" in by_id:
-        writer_context_raw = str(by_id["M01-Q05"].get("response", "")).strip().lower()
-
-    # Extract experience_level from M01-Q10 (primary) or M01-Q04 (fallback).
-    experience_level: float | None = None
-    for qid in ("M01-Q10", "M01-Q04"):
-        if qid in by_id:
-            try:
-                experience_level = float(by_id[qid].get("response", 0))
-            except (TypeError, ValueError):
-                pass
-            if experience_level is not None:
-                break
+    if "M01-Q01" in by_id:
+        writer_context_raw = str(by_id["M01-Q01"].get("response", "")).strip().lower()
 
     # Walk evaluation_order; first match wins.
     branches = routes["branches"]
@@ -94,12 +82,6 @@ def evaluate_primary_route(screening_responses: list[dict[str, Any]]) -> dict[st
         allowed_contexts: list[str] = conditions.get("writer_context", [])
         if writer_context_raw not in allowed_contexts:
             continue
-
-        # Check experience_level_min if specified.
-        min_exp = conditions.get("experience_level_min")
-        if min_exp is not None:
-            if experience_level is None or experience_level < min_exp:
-                continue
 
         return {
             "writer_type": branch_name,
@@ -354,7 +336,7 @@ def _build_parser() -> argparse.ArgumentParser:
         required=True,
         help=(
             "JSON object mapping question IDs to response values, "
-            'e.g. \'{"M01-Q05": "business", "M01-Q10": 5}\''
+            'e.g. \'{"M01-Q01": "technical"}\''
         ),
     )
 
@@ -387,7 +369,7 @@ def _build_parser() -> argparse.ArgumentParser:
 
 def _cli_evaluate_route(args: argparse.Namespace) -> None:
     raw = json.loads(args.responses)
-    # Convert flat {"M01-Q05": "business", ...} to list-of-dicts.
+    # Convert flat {"M01-Q01": "technical", ...} to list-of-dicts.
     if isinstance(raw, dict):
         responses = [
             {"question_id": qid, "response": val} for qid, val in raw.items()

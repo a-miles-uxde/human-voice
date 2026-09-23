@@ -48,11 +48,11 @@ def voice_profile_schema() -> dict:
 # --- Mock interview data ---
 
 SCREENING_RESPONSES = [
-    {"question_id": "M01-Q01", "value": "direct, analytical, precise"},
+    {"question_id": "M01-Q01", "value": "professional", "response": "professional", "selected_options": ["professional"]},
     {"question_id": "M01-Q02", "value": "em dashes and short paragraphs"},
     {"question_id": "M01-Q03", "value": "structured reasoning"},
     {"question_id": "M01-Q04", "value": "distinctive", "selected_options": ["distinctive"]},
-    {"question_id": "M01-Q05", "value": "business", "response": "business", "selected_options": ["business"]},
+    {"question_id": "M01-Q05", "value": "A report I wrote that reorganized outdated processes and cut approval time in half."},
     {"question_id": "M01-Q06", "value": "directness and precision"},
     {"question_id": "M01-Q07", "value": "more concise over time"},
     {"question_id": "M01-Q08", "value": "clear and direct"},

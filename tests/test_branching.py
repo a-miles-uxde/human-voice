@@ -15,12 +15,9 @@ from lib.branching import (
 # ---- helpers -----------------------------------------------------------------
 
 
-def _screening(context: str, experience: float | None = None) -> list[dict]:
+def _screening(context: str) -> list[dict]:
     """Build a minimal screening-response list."""
-    responses: list[dict] = [{"question_id": "M01-Q05", "response": context}]
-    if experience is not None:
-        responses.append({"question_id": "M01-Q10", "response": experience})
-    return responses
+    return [{"question_id": "M01-Q01", "response": context}]
 
 
 # ---- evaluate_primary_route --------------------------------------------------
@@ -33,18 +30,18 @@ def test_evaluate_route_business() -> None:
     assert "M08" in result["activated_modules"]
 
 
+def test_evaluate_route_professional_synonym() -> None:
+    """writer_context='professional' (the actual M01-Q01 option value) also
+    routes to business_professional."""
+    result = evaluate_primary_route(_screening("professional"))
+    assert result["writer_type"] == "business_professional"
+
+
 def test_evaluate_route_creative() -> None:
-    """writer_context='fiction' + experience>=3 routes to creative_literary."""
-    result = evaluate_primary_route(_screening("fiction", experience=5))
+    """writer_context='fiction' routes to creative_literary."""
+    result = evaluate_primary_route(_screening("fiction"))
     assert result["writer_type"] == "creative_literary"
     assert "M05" in result["activated_modules"]
-
-
-def test_evaluate_route_creative_low_experience() -> None:
-    """fiction + experience < 3 does NOT match creative_literary; falls to default."""
-    result = evaluate_primary_route(_screening("fiction", experience=2))
-    # creative_literary requires experience_level_min=3, so this falls through
-    assert result["writer_type"] == "personal_journalistic"
 
 
 def test_evaluate_route_academic() -> None:
