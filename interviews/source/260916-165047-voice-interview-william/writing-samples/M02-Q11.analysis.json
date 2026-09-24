@@ -1,0 +1,64 @@
+{
+  "text_length_chars": 310,
+  "text_length_tokens": 71,
+  "sentence_count": 3,
+  "lexical": {
+    "mtld": 52.016,
+    "mattr": 0.8015,
+    "hapax_legomena_ratio": 0.7778,
+    "avg_word_length_chars": 3.79,
+    "avg_word_length_syllables": 1.194,
+    "latinate_germanic_ratio": 0.053,
+    "latinate_count": 1,
+    "germanic_count": 19,
+    "vocabulary_sophistication": 0.6,
+    "type_token_ratio": 0.7258
+  },
+  "syntactic": {
+    "mean_sentence_length": 21.67,
+    "sentence_length_sd": 8.99,
+    "mean_clause_length": 5.42,
+    "clauses_per_sentence": 4.0,
+    "dependent_clause_ratio": 0.6667,
+    "complex_t_unit_ratio": 1.0,
+    "passive_voice_ratio": 0.3333,
+    "left_branching_ratio": 0.55
+  },
+  "pragmatic": {
+    "hedge_count": 1,
+    "hedge_density": 16.129,
+    "booster_count": 1,
+    "booster_density": 16.129,
+    "hedge_boost_ratio": 1.0,
+    "self_mention_count": 0,
+    "self_mention_density": 0.0,
+    "engagement_marker_count": 5,
+    "engagement_marker_density": 80.645,
+    "attitude_marker_count": 0,
+    "attitude_marker_density": 0.0
+  },
+  "discourse": {
+    "connective_density_total": 48.387,
+    "connective_density_causal": 0.0,
+    "connective_density_additive": 32.258,
+    "connective_density_adversative": 0.0,
+    "connective_density_temporal": 16.129,
+    "referential_cohesion": 0.0,
+    "idea_density": 0.4355
+  },
+  "composite": {
+    "formality_f_score": 50.0,
+    "flesch_kincaid_grade": 6.55,
+    "flesch_reading_ease": 84.88,
+    "gunning_fog_index": 8.91,
+    "analytical_thinking": 100.0,
+    "clout": 90.32,
+    "authenticity": 33.87,
+    "emotional_tone": 50.0
+  },
+  "metadata": {
+    "source_file": "/Users/arden_miles/.human-voice/sessions/3cd77a4a-59c5-4550-8c0c-ce67f4600226/writing-samples/M02-Q11.json",
+    "prompt_id": "M02-Q11",
+    "session_id": "3cd77a4a-59c5-4550-8c0c-ce67f4600226"
+  }
+}

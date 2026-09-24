@@ -1,0 +1,137 @@
+{
+  "$schema": "voice-profile/v1",
+  "profile_id": "3540d4b2-8af9-4f94-9c76-6ad625cf6a66",
+  "created_at": "2026-09-23T14:54:15.234281+00:00",
+  "version": "1.0.0",
+  "session_id": "3cd77a4a-59c5-4550-8c0c-ce67f4600226",
+  "identity_summary": "A moderately casual, analytically-precise voice that favors directness over diplomacy. Sentences mix short and long in service of clarity, with qualification reserved for genuine uncertainty rather than habitual hedging. Register shifts gradually rather than quickly, and while the writer sees their own style as more casual than it reads, the prose consistently scores well above average for analytical density \u2014 a sharper, more structured voice than the writer's own self-description suggests.",
+  "writer_type": "academic_technical",
+  "gold_standard_dimensions": {
+    "formality": {
+      "score": 46,
+      "self_report": 27,
+      "observed": 55,
+      "confidence": 0.65
+    },
+    "emotional_tone": {
+      "score": 52,
+      "self_report": 53,
+      "observed": 50,
+      "confidence": 0.85
+    },
+    "personality": {
+      "score": 55,
+      "self_report": 55,
+      "observed": 55,
+      "confidence": 0.49
+    },
+    "complexity": {
+      "score": 38,
+      "self_report": 38,
+      "observed": 38,
+      "confidence": 0.85
+    },
+    "audience_awareness": {
+      "score": 50,
+      "self_report": 50,
+      "observed": 50,
+      "confidence": 0.0
+    },
+    "authority": {
+      "score": 47,
+      "self_report": 45,
+      "observed": 51,
+      "confidence": 0.85
+    },
+    "narrativity": {
+      "score": 2,
+      "self_report": 2,
+      "observed": 2,
+      "confidence": 0.59
+    },
+    "humor": {
+      "score": 54,
+      "self_report": 54,
+      "observed": 54,
+      "confidence": 0.59
+    }
+  },
+  "gap_dimensions": {
+    "precision": {
+      "score": 31,
+      "source": "self_report"
+    },
+    "revision_orientation": {
+      "score": 33,
+      "source": "self_report"
+    },
+    "risk_tolerance": {
+      "score": 50,
+      "source": "self_report"
+    },
+    "self_awareness": {
+      "score": 33,
+      "source": "self_report"
+    },
+    "influence_absorption": {
+      "score": 67,
+      "source": "self_report"
+    },
+    "vocabulary_range": {
+      "score": 17,
+      "source": "self_report"
+    },
+    "sentence_rhythm": {
+      "score": 67,
+      "source": "self_report"
+    },
+    "genre_awareness": {
+      "score": 67,
+      "source": "self_report"
+    }
+  },
+  "semantic_differential": {
+    "formality": 2.33,
+    "humor": 3.0,
+    "complexity": 2.6,
+    "authority": 3.0,
+    "emotional_tone": 4.0,
+    "narrativity": 3.0,
+    "audience_awareness": 1.67,
+    "personality": 3.67
+  },
+  "calibration": {
+    "overall_self_awareness": 0.8,
+    "high_awareness_dimensions": [
+      "complexity",
+      "authority",
+      "emotional_tone"
+    ],
+    "blind_spots": [
+      "formality"
+    ],
+    "aspirational_gaps": []
+  },
+  "distinctive_features": [
+    "liwc_analytical: 97.58125 (z=2.38)"
+  ],
+  "voice_stability_map": {
+    "stable_across_contexts": [],
+    "adapts_by_context": []
+  },
+  "writing_sample_analysis": {
+    "sample_count": 8,
+    "total_words": 800
+  },
+  "metadata": {
+    "questions_answered": 105,
+    "modules_completed": 10,
+    "duration_seconds": 1521.0,
+    "branch_path": [
+      "core",
+      "academic_technical"
+    ],
+    "attention_check_pass": true,
+    "satisficing_flags": 2
+  }
+}
